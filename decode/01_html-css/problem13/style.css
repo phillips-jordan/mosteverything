@@ -1,0 +1,21 @@
+.img {
+    height: 100px;
+    margin: auto
+}
+
+.box {
+    border-style: dashed;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 100px
+}
+
+.flex {
+    display: flex;
+}
+
+.margin {
+    margin-left: 50px;
+    margin-right: 50px
+}
