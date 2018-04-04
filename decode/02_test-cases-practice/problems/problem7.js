@@ -2,11 +2,23 @@ var assert = require('assert');
 
 // we need 7 test cases. 
 let inputs = [
-  
+  ["abc", 2],
+  ["dog", -4],
+  [5, "ert"],
+  ["asd", "asd"],
+  [1, 2],
+  [100],
+  ["hello"]
 ]
 
 let outputs = [
-  
+    "abcabc",
+    "",
+    undefined,
+    undefined,
+    undefined,
+    undefined, 
+    undefined 
 ]
 
 /*
@@ -20,7 +32,13 @@ f(["fo", 3]) // "fofofo"
 f(["foo", -1]) // undefined
 */
 function f(arr) {
-    
+    if (isNaN(arr[0]) == true && isNaN(arr[1]) == false) {
+        if (arr[1] > 0) {
+        return (arr[0].repeat(arr[1]))
+        }
+        else {return ""}
+    }
+    return undefined
 }
 
 function runTest(i) {
