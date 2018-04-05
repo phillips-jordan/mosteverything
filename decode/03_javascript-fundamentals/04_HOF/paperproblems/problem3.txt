@@ -1,4 +1,4 @@
-What is the output of this program? Don't cheat by running it!
+What is the output of this program? Don't cheat by running it! //pls
 
 function k(i, j) {
     return i + 2 + j * 2;
@@ -9,3 +9,6 @@ function f(g) {
 }
 
 console.log(f(k));
+
+
+15!!

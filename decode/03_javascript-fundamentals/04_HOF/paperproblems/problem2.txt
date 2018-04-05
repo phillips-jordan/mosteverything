@@ -30,3 +30,7 @@ map(someNumbers, triple) => [3, 6, 9, 12]
 
 map(someStrings, toUpperCase) => ["BOB", "ERIC"]
 map(someStrings, toLowerCase) => ["bob", "eric"]
+
+it has 2 parameters
+it takes an array and a function
+it applies the function to each element in the array replaces the index with the new values

@@ -28,3 +28,8 @@ filter(oddNumbers, isEven)  => []
 filter(oddNumbers, isOdd)   => [3, 5, 7, 9]
 filter(someNumbers, isEven) => [2, 4]
 filter(someNumbers, isOdd)  => [1, 3]
+
+
+filter has two parameters,
+it takes an array of numbers and a function with boolean return
+it applies the function and returns the TRUE values
