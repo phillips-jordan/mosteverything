@@ -12,3 +12,9 @@ You get the following exception:
 
 a) Explain what this exception means.
 b) Why does this exception exist? What's wrong with a cyclic __proto__ value?
+
+
+A - > the value of proto for these objects will be caught in an infinite loop, as checking for b.__proto__ or a.__proto \
+will loop through and b indefinitely
+
+B -> to stop infinite loops in proto chain...

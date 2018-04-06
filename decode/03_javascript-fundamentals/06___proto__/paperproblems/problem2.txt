@@ -15,3 +15,6 @@ console.log(x1.age);
 console.log(x2.age);
 console.log(x3.age);
 console.log(x4.age);
+
+
+//20,20,18, 18
