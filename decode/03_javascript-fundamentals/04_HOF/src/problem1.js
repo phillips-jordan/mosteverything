@@ -45,16 +45,13 @@ return f(arg)
     
 
 function exceptionalize(f) {
-let g = f;
-return g = (arg) => {
-    f = (arg) => {
-        if (arg === 0) {return null}
-        return arg
-    }
+let g = (arg) => {
     if (f(arg)===null){throw new Error("ccccc")}
-    return f(arg)
+    return arg
 }
+    return g
 }
+
 
     // returns a new function
     // this function takes 1 input, called arg
@@ -72,20 +69,16 @@ return g = (arg) => {
 
 
 function nullify(f) {
-    let g = f
-    return g = (arg) => {
-        f = (arg) => {if (arg == 0) {
-            throw new Error("ddddd")}
-            return arg;
-        }
+    let g = (arg) => {
         try {
-            f(arg)
+            return f(arg)
         }catch(err){
             return null
         }
-        return f(arg)
     }
+        return g
 }
+
     // returns a new function
     // this function takes 1 input, called arg
     // if f(arg) throws an exception, this new function returns null

@@ -1,5 +1,5 @@
 function first(arr) {
-    if (arr[0]==undefined){throw new Error("NO")}
+    if (arr==[]){throw new Error("NO")}
     return arr[0]   
     // Throw an exception if the array has no elements
     // Otherwise return the first element
