@@ -1,16 +1,13 @@
 
 function callNoException(f, arg) {
-    f = (arg) =>{
-        if(arg===0) {throw new Error("aaaaa")}
-        return arg
-        }
     try {
         f(arg)
         } catch(err) {
             return null
-        }      
-    return f(arg) 
+        }
+        return f(arg)     
     }
+
     // if f(arg) throws an exception, return null
     // otherwise return what f(arg) returned
     // Example:
@@ -23,13 +20,10 @@ function callNoException(f, arg) {
 
 
 function callNoNull(f, arg) {
-f = (arg) => {
-    if (arg === 0) {return null}
-    return arg
-}
-if (f(arg) === null) {throw new Error("bbbb")}
-return f(arg)
-}
+    if (f(arg)==null){throw new Error("asdf")}
+    return f(arg)
+    }
+    
 
 
     // if f(arg) returns null, throw an exception
