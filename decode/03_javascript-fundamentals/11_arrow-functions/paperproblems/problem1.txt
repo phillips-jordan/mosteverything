@@ -4,16 +4,30 @@ For each of the following expressions:
 
 a) x => x + 1
 
+no error, input 2, output 3
+
 b) x, y => x * y
+
+error, x,y need parens
 
 c) x => { x * 2 }
 
+no error, return undefined
+
 d) (x, z) => {console.log(z); return x * z}
+
+no error, input 2, 3 -> log 3, return 6
 
 e) x => console.log(z); return x * z
 
+error, need curly 
+
 f) (x) => x * 2
 
+no error, input 2, return 4
+
 e) () => console.log("hello")
+
+log "hello"
 
 When you're done, check all your answers in the developer console.
