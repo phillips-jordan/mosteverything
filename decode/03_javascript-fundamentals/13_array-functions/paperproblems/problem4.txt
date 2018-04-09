@@ -15,4 +15,6 @@ animals.some(isDog)
 animals.every(isDog)
 
 
+.some = true
 
+.every = false
