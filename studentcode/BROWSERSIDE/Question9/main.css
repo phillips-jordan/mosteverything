@@ -1,0 +1,52 @@
+#startbutton {
+    position: absolute;
+    top: 50%;
+    left: 17%;
+    font-size:80pt;
+    font-family: 'Press Start 2p', cursive;
+    color: #7498d3;
+    background-color: #31415b;
+    padding: 20px;
+    border-radius: 30px;
+    transition: all 2s;
+}
+#startbutton:hover{
+  transform: scale(0.8); 
+}
+
+.gameButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size:40pt;
+    font-family: 'Press Start 2p', cursive;
+    color: #7498d3;
+    background-color: #31415b;
+    padding: 20px;
+    border-radius: 30px;
+    transition: all 1.3s;
+}
+
+.gameButton:hover{
+    background-color: #e23457;
+    color: #f7839a; 
+    }
+
+#msg {
+    font-family: 'VT323', monospace;
+    text-align: center;
+    font-size: 60pt ;
+    color: cyan;
+    text-shadow: 3px 2px 2px darkred;
+    background-image: url('dark_dotted2.png');
+    border-radius: 20px;
+    border: hidden;
+    border-color: gray;
+
+}
+
+body {
+    background-image: url('https://i.pinimg.com/originals/63/16/aa/6316aa9661d6b55c85ada3763918f597.gif');
+    background-size: 100%
+}

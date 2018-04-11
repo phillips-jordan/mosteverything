@@ -48,7 +48,7 @@ let removeButtons = () => {
         console.log(buttonArray)
         bod.removeChild(buttonArray[0])
     }
-}
+}   
 
 let winGame = () => {
         if (!gameOver) {
