@@ -6,12 +6,12 @@ function populate(DOMElement, e) {
 
 //IGNORE EVERYTHING ABOVE THIS LINE
 
-class div {
+class ul {
     constructor(children) {
         this.children = children;
     }
     render() {
-        var ret = document.createElement("div");
+        var ret = document.createElement("ul");
         for (var i = 0; i < this.children.length; i++) {
             ret.appendChild(this.children[i].render());
         }
@@ -19,12 +19,12 @@ class div {
     }
 }
 
-class h1 {
+class li {
     constructor(text) {
         this.text = text;
     }
     render() {
-        var ret = document.createElement("h1");
+        var ret = document.createElement("li");
         ret.innerText = this.text;
         return ret;
     }

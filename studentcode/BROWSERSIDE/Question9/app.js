@@ -16,6 +16,12 @@ let win = new Audio('win.wav');
 let end = new Audio('end.mp3');
 let nex = new Audio('alert.wav');
 let bugFix = '';
+let p1buts = [81,87,69,82,65,83,68,70]
+let p2buts = [85,73,79,80,72,74,75,76]
+let p1Char = ['Q','W','E','R','A','S','D','F']
+let p2Char = ['U','I','O','P','H','J','K','L']
+let randomI = Math.floor(Math.random()*(8-1)+1)
+let randomI2 = Math.floor(Math.random() * (8 - 1) + 1)
 
 //This function generates the restart button at end of game
 let genEndButton = () => {
@@ -36,6 +42,8 @@ let genNextButton = () => {
     bod.appendChild(nextButton);
     nextButton.addEventListener('click', () => {
         randomTime = Math.floor(Math.random() * (8000 - 2000) + 2000);
+        randomI = Math.floor(Math.random() * (8 - 1) + 1)
+        randomI2 = Math.floor(Math.random() * (8 - 1) + 1)
         startRound();
         falseStart();
         setTimeout(startGame, randomTime);
@@ -47,13 +55,13 @@ let genNextButton = () => {
 let gameEvents = () => {
     nex.play();
     window.addEventListener('keydown', (x) => {
-        if (x.keyCode == 81) {
+        if (x.keyCode == p1buts[randomI]) {
             playerOneWin();
         }
     })
     
     window.addEventListener('keydown', (x) => {
-        if (x.keyCode == 80) {
+        if (x.keyCode == p2buts[randomI2]) {
             playerTwoWin();
         }
     })
@@ -99,7 +107,9 @@ let playerTwoWin = () => {
 //I'm not sure why the else is there.... maybe from older version? might remove
 let falseStart = () => {
     window.addEventListener('keydown', (x) => {
-        if (x.keyCode == 81 && !gameOver && !roundStart) {
+        console.log(p1buts)
+        console.log(p1buts.includes(81))
+        if (p1buts.includes(x.keyCode) && !gameOver && !roundStart) {
             bugFix = 'cliccOut';
             fStart.play();
             gameOver = true;
@@ -114,7 +124,7 @@ let falseStart = () => {
         }
     })
     window.addEventListener('keydown', (x) => {
-        if (x.keyCode == 80 && !gameOver && !roundStart) {
+        if (p2buts.includes(x.keyCode) && !gameOver && !roundStart) {
             bugFix = 'cliccOut';
             fStart.play();
             gameOver = true;
@@ -136,7 +146,7 @@ let startRound = () => {
     roundStart = false;
     gameOver = false;
     roundCounter++;
-    msg.innerHTML = "ROUND WILL BEGIN IN " + randomTime / 1000 + " SECONDS!<br>PLAYER ONE USES 'Q', PLAYER TWO USES 'P'";
+    msg.innerHTML = "ROUND WILL BEGIN IN " + randomTime / 1000 + " SECONDS!<br>PLAYER ONE USES 'Q, W, E, R, A, S, D, F'<br>PLAYER TWO USES 'U, I, O, P, H, J, K, L'";
 }
 
 
@@ -148,7 +158,7 @@ let startGame = () => {
     if(bugFix !== 'cliccOut'){
         roundStart = true;
         if (!gameOver) {
-            msg.innerHTML = "ROUND START";
+            msg.innerHTML = "ROUND START<br>P1: " + p1Char[randomI] + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp P2: " + p2Char[randomI2 ];
             gameEvents();
         }
     }
