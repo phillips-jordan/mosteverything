@@ -46,7 +46,8 @@
 
 }
 
-body {
+#bod {
     background-image: url('https://i.pinimg.com/originals/63/16/aa/6316aa9661d6b55c85ada3763918f597.gif');
-    background-size: 100%
+    background-size: 100% auto;
+    transition: all 0.3s ease-in;
 }

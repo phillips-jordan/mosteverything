@@ -154,7 +154,6 @@ let startRound = () => {
 //begins the actual keydown game
 
 let startGame = () => {
-    console.log(bugFix)
     if(bugFix !== 'cliccOut'){
         roundStart = true;
         if (!gameOver) {
@@ -171,16 +170,20 @@ let startGame = () => {
 //ends game, plays new music, etc
 
 let endCeremony = () => {
-    bG.loop = false;
+    bod.style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC')"
+    bod.style.transition = 'all 0.4s ease-in-out'
+    bG.loop = false;    
     bG.pause();
     win.play();
     end.loop = true;
     end.play();
     if (playerOnePt == 3) {
+        setTimeout(()=>{bod.style.backgroundImage = "url('https://media.giphy.com/media/fPNPxZTtBAfZK/giphy.gif')"}, 500)
         msg.innerHTML = "PLAYER ONE HAS OBTAINED THREE POINTS<br>PLAYER ONE WINS!";
         genEndButton();
     }
     if (playerTwoPt == 3) {
+        setTimeout(() => { bod.style.backgroundImage = "url('https://media.giphy.com/media/fPNPxZTtBAfZK/giphy.gif')" }, 500)
         msg.innerHTML = "PLAYER TWO HAS OBTAINED THREE POINTS<br>PLAYER TWO WINS!";
         genEndButton();
     }
