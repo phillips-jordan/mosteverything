@@ -20,3 +20,5 @@ var bob = new Person(25, "Bob", 40000);
 
 bob.increaseSalary(-500);
 console.log(bob.toString());
+
+My name is Bob and I'm 25 and I make 39500
