@@ -119,7 +119,10 @@ var images = {};
   "die5.png",
   "beam1.png",
   "beam2.png",
-  "beam3.png"
+  "beam3.png",
+  "beam1b.png",
+  "beam2b.png",
+  "beam3b.png"
 ].forEach(imgName => {
   var img = document.createElement("img");
   img.src = "images/" + imgName;
@@ -700,8 +703,11 @@ class Engine {
     this.enemies.forEach(enemy => enemy.render(this.ctx)); // draw the enemies
     this.exp.forEach(x => x.render(this.ctx))
     this.cf.forEach(c => c.render(this.ctx));
-    if(jumping==false && shooting==false){
+    if(jumping==false && directions.left==false){
     this.ctx.drawImage(images['beam'+Math.round(Math.random()*(3-1)+1)+'.png'], this.player.x-60, this.player.y+PLAYER_HEIGHT-25)
+    }
+    if(jumping==false  && directions.left == true){
+    this.ctx.drawImage(images['beam'+Math.round(Math.random()*(3-1)+1)+'b.png'], this.player.x+60, this.player.y+PLAYER_HEIGHT-25)   
     }
     this.player.render(this.ctx); // draw the player
     this.playerProj.forEach(projectile => projectile.render(this.ctx));
