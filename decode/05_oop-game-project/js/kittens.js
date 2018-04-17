@@ -69,7 +69,13 @@ let exploder = new Audio(['explode.wav']);
 let projExp = new Audio(['projectile.wav']);
 let shoot = new Audio(['shoot.wav']);
 let overH = new Audio(['over.wav']);
+let begin = new Audio(['open.wav'])
 overH.volume = 0.4
+exploder.volume = 0.4
+let startBtn = document.getElementById("startbut");
+let bod = document.getElementById("bod");
+let op = document.getElementById("op");
+let pic = document.getElementById("pic");
 
 // Preload game images
 var images = {};
@@ -392,11 +398,12 @@ class Engine {
 
     // Setup the <canvas> element where we will be drawing
     var canvas = document.createElement("canvas");
+    canvas.className='canvas'
     canvas.width = GAME_WIDTH;
     canvas.height = GAME_HEIGHT;
     canvas.setAttribute(
       "style",
-      "position: absolute;  left: 50%;margin-left:-750px; top: 50%;margin-top:-300px; border:2px solid blue"
+      "position: absolute;  left: 50%;margin-left:-750px; top: 50%;margin-top:-330px; border:2px ridge red"
     );
     element.appendChild(canvas);
 
@@ -515,7 +522,7 @@ class Engine {
     while (!enemySpot || this.enemies[enemySpot]) {
       enemySpot = Math.round(Math.random() * enemySpots);
     }
-    if (this.score > 15000 && enemy3 < 3) {
+    if (this.score > 30000 && enemy3 < 3) {
       this.enemies[enemySpot] = new Enemy3(0);
       enemy3++;
     }
@@ -536,7 +543,7 @@ class Engine {
       let cycle2 = true;
 
       if (this.charge > 0) {
-        this.charge -= 100;
+        this.charge -= 400;
         // setTimeout(() => { if (overHead == true && cycle1==true) { this.player.sprite = images['over2.png'];cycle1=false } }, 40)
         // setTimeout(() => { if (overHead == true &&cycle2==true) { this.player.sprite = images['over3.png'];cycle2=false } }, 60)
         setTimeout(() => {
@@ -582,8 +589,7 @@ class Engine {
 
   // This method kicks off the game
   start() {
-    bgm.loop = true;
-    bgm.play();
+    
     this.time = 0;
     this.score = 0;
     this.lastFrame = Date.now();
@@ -682,10 +688,13 @@ class Engine {
     if (this.charge < 10000) {
       this.charge += 20;
     }
-    this.score += timeDiff;
+    this.score += timeDiff +Math.round(this.player.x/200);
     this.time += timeDiff;
     playerY = this.player.y;
     playerX = this.player.x;
+    if (this.score>100000){
+        MAX_ENEMIES = 7
+    }
 
     // Call update on all enemies
     this.bg.forEach(bg => bg.update(timeDiff));
@@ -1016,10 +1025,24 @@ class Engine {
             this.player.update(0)
         }
         this.player.render(this.ctx); 
-        this.ctx.font = "bold 200px Gugi";
+        this.ctx.font = "bold 40px Gugi";
+        this.ctx.fillStyle = 'cyan'
+        this.ctx.fillText('SCORE - '+this.score, 170, 610);
         this.ctx.fillStyle = "#f40424";
-        this.ctx.fillText(this.score, 170, 270);
-        this.ctx.fillText("GAME OVER", 150, 470);
+        this.ctx.font = "bold 200px Gugi";
+        this.ctx.fillText("GAME OVER", 150, 570);
+        let end = document.createElement('button')
+        end.id = 'startbut'
+        end.style.left='390px'
+        end.style.top= '210px'
+        end.style.height='100px'
+        end.style.textShadow='1px 1px 1px aliceblue'
+        end.innerHTML="<img src='startbutton.png'><br>RETRY?"
+        bod.appendChild(end)
+        end.addEventListener('click', ()=>{
+            bod.removeChild(end);
+            location.reload();
+        })
       }, 200);
     } else {
       // If player is not dead, then draw the score
@@ -1039,6 +1062,9 @@ class Engine {
       this.ctx.fillStyle = "green";
       this.ctx.fillRect(5, 50, this.charge / 25, 15);
       this.ctx.fillStyle = "#db213e";
+      this.ctx.fillText('FIRE - Q', 1260, 60)
+      this.ctx.fillText('SLASH - W',1260,30)
+      this.ctx.fillText("JUMP - SPACE", 1260, 90);
       // Set the time marker and redraw
       this.lastFrame = Date.now();
       requestAnimationFrame(this.gameLoop);
@@ -1054,6 +1080,20 @@ class Engine {
   }
 }
 
+
+startBtn.addEventListener('click', ()=>{
+    begin.play()
+    bgm.loop = true;
+    bgm.play();
+    pic.style.filter= 'opacity(0%)';
+    op.removeChild(startBtn)
+        bod.style.backgroundImage = "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC')";
+    setTimeout(()=>{
+        bod.removeChild(op)
+        bod.style.background = '#6396e8'
+
 // This section will start the game
-var gameEngine = new Engine(document.getElementById("app"));
-gameEngine.start();
+var gameEngine = new Engine(document.getElementById("app"))
+
+gameEngine.start();}, 1200)
+})

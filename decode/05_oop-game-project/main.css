@@ -1,4 +1,35 @@
 #bod {
-    background-color: rgb(33, 33, 94);
+    background-image: url('http://backgroundcheckall.com/wp-content/uploads/2017/12/pixel-background-gif-9.gif');
+    background-position-x: 0;
+    background-size: 1550px;
+    background-repeat: no-repeat;
+    transition: all 1.3s ease-in-out;
 }
 
+#startbut{
+    position: absolute;
+    top: 365px;
+    left: 760px;
+    transform: translate(-50%, -50%);
+    font-size:40pt;
+    font-family: 'Press Start 2p', cursive;
+    background: none;
+    border: none;
+    color: #f40424;
+    border-radius: 30px;
+    transition: all 1.3s;
+}
+
+.canvas {
+    transition: all 2s ease-in-out; 
+}
+
+#pic{
+    position:fixed;
+    transition: all 1s ease-in-out;
+    top:270px; 
+    left:190px; 
+    height:430px;
+    filter:hue-rotate(-10deg);
+    filter:opacity(100%);
+}
