@@ -1,7 +1,6 @@
-var rootdiv = document.getElementById('root');
-var elem = React.createElement(
+let rootdiv = document.getElementById('root');
+ReactDOM.render(React.createElement(
   'h1',
   null,
-  ' hello world '
-);
-ReactDOM.render(elem, rootdiv);
+  'hello world'
+), rootdiv);

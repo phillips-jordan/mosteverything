@@ -1,5 +1,6 @@
-var rootdiv = document.getElementById('root');
-var elem = React.createElement(
+let rootdiv = document.getElementById('root');
+
+let list = React.createElement(
   'ul',
   null,
   React.createElement(
@@ -10,7 +11,7 @@ var elem = React.createElement(
   React.createElement(
     'li',
     null,
-    'bacon2'
+    'bacon'
   ),
   React.createElement(
     'li',
@@ -18,4 +19,4 @@ var elem = React.createElement(
     'milk'
   )
 );
-ReactDOM.render(elem, rootdiv);
+ReactDOM.render(list, rootdiv);

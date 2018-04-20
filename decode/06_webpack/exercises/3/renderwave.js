@@ -8,3 +8,5 @@ function renderWave(p5, yvalues, xspacing) {
     }
 
 }
+
+export default renderWave

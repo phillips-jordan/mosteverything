@@ -1,0 +1,12 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "one-liner-joke": "^1.0.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "surge": "^0.20.1"
+  }
+}

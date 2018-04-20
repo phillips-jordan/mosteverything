@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        class but extends React.Component{
+            constructor(){
+                super();
+                this.state= {txt: 'a'}
+            } 
+            render() {
+                return React.createElement("button", {
+                    onClick: () => {
+                        if (this.state.txt.length > 9){
+                            this.setState({
+                                txt: 'a'
+                            })
+                        }
+                        else {
+                            this.setState({
+                            txt: this.state.txt+'a'
+                            })
+                        }
+                    
+                }}, this.state.txt)
+            }  
+     }
+        let rootdiv = document.getElementById('root')
+       ReactDOM.render(React.createElement(but, null), rootdiv)
+    </script>
+</body>
+
+</html>

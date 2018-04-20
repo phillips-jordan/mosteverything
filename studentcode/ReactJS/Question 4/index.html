@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        class buten extends React.Component {
+            constructor() {
+                super();
+                this.state = { random: 0 }
+            }
+            render() {
+                return React.createElement('div', null, this.state.random, React.createElement('button',
+                    {
+                        onClick: () => {
+                            this.setState({ random: Math.round(Math.random() * (100 - 1) + 1) })
+                        }
+                    }, 'CLICC'))
+            }
+        }
+
+        let rootdiv = document.getElementById('root')
+        ReactDOM.render(React.createElement(buten, null), rootdiv)
+    </script>
+</body>
+
+</html>

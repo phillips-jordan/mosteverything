@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        let quotes =[
+            'Carry out a random act of kindness, with no expectation of reward, safe in the knowledge that one day someone might do the same for you.--Princess Diana',
+            "My style is unique and random. But I think it's important that it still makes sense. --Jess Glynne",
+            "Goals transform a random walk into a chase.--Mihaly Csikszentmihalyi",
+            "Maybe life is random, but I doubt it.--Steven Tyler",
+            "Random chance plays a huge part in everybody's life.--Gary Gygax"
+        ]
+        class quoter extends React.Component {
+            constructor() {
+                super();
+                this.state = {quo: ''}
+            }
+            render(){
+                return React.createElement('div', null, this.state.quo,
+                    React.createElement('button', 
+                {onClick: () => {
+                    this.setState({
+                        quo: quotes[Math.round(Math.random()*4)]
+                    })
+                }}, 'GENERATE QUOTE'))
+            }
+        }
+
+        let rootdiv = document.getElementById('root')
+        ReactDOM.render(React.createElement(quoter, null), rootdiv)
+    
+    </script>
+</body>
+
+</html>
