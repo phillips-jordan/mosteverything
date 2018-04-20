@@ -65,23 +65,25 @@ class App extends Component {
       turn = (this.state.playerXTurn ? "X" : "O") + "s Turn";
     }
     return (
-      <div className="holder">
-        <div id="turn">{turn}</div>
-        <div>
-          {this.renderBtn(0)}
-          {this.renderBtn(1)}
-          {this.renderBtn(2)}
-        </div>
+      <div className="root">
+        <div className="holder">
+          <div id="turn">{turn}</div>
+          <div>
+            {this.renderBtn(0)}
+            {this.renderBtn(1)}
+            {this.renderBtn(2)}
+          </div>
 
-        <div>
-          {this.renderBtn(3)}
-          {this.renderBtn(4)}
-          {this.renderBtn(5)}
-        </div>
-        <div>
-          {this.renderBtn(6)}
-          {this.renderBtn(7)}
-          {this.renderBtn(8)}
+          <div>
+            {this.renderBtn(3)}
+            {this.renderBtn(4)}
+            {this.renderBtn(5)}
+          </div>
+          <div>
+            {this.renderBtn(6)}
+            {this.renderBtn(7)}
+            {this.renderBtn(8)}
+          </div>
         </div>
       </div>
     );
