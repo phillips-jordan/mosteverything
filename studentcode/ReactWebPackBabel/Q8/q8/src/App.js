@@ -32,27 +32,29 @@ class App extends Component {
     super();
     this.state = {
       buttons: [<Btn color="red" click={this.clickler} />],
-      buttonCheck: 2,
+      p: 2,
       n: 1
     };
   }
   clickler = () => {
-    const { buttons, buttonCheck, n } = this.state;
+    const { buttons, p, n } = this.state;
     let arr = buttons;
     let len = arr.length;
     this.setState({
       n: n + 1
     });
     if (buttons.length === n) {
+      //IGNORE THIS
       if (buttons.length == 1) {
         arr.push(<Btn color="blue" click={this.clickler} />);
         arr.push(<Btn color="yellow" click={this.clickler} />);
         this.setState({
           buttons: arr,
-          buttonCheck: buttonCheck + 1
+          p: p + 1
         });
+        // LOL
       } else {
-        for (let i = 0; i < buttonCheck; i++) {
+        for (let i = 0; i < p; i++) {
           arr.push(
             <Btn
               color={"#" + Math.floor(Math.random() * 16777215).toString(16)}
@@ -62,7 +64,7 @@ class App extends Component {
         }
         this.setState({
           buttons: arr,
-          buttonCheck: buttonCheck + 1
+          p: p + 1
         });
       }
     }
