@@ -71,7 +71,7 @@ class App extends Component {
               </ul>
               <form onSubmit={this.handleSubmit}>
                 <input type="text" value={this.state.inputCon} onChange={this.handleChange} />
-                <input type="submit" />
+                <input className='sub' type="submit" />
               </form>
             </div>
             </div>

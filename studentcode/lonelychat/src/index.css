@@ -3,13 +3,3 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
-ul {
-  background-color:red;
-}
-
-.sub {
-  background-color: blue;
-  border-style: none;
-  border-radius: 5pt;
-}
